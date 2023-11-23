@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <title>Register</title>
+    <style>
+        .vs{border: 1px solid #eddfdf;
+    border-radius: 10px;
+    padding: 15px;
+    background: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 20px;}
+    .hf{
+    width:50%;
+    float:left;
+    padding:5px;
+    }
+    .sz{
+    margin-left:20px;
+    }
+    .vg{float:right;margin-right:10px;}
+    </style>
+</head>
+<body style="background-image: url('https://png.pngtree.com/background/20230411/original/pngtree-corporate-website-blue-abstract-background-picture-image_2389757.jpg');">
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-sm-3">
+
+        </div>
+        <div class="col-sm-6 vs" style="    position: absolute;
+    top: 5%;
+    left: 30%;
+    width: 40%;">
+            <div style="width:100%;float:left;">
+                  <h3 style="float:left;">Create Order</h3>
+             <a href="logout"  class="btn btn-danger py-2 px-4 d-none d-lg-block" style="margin: 10px;float: right;">Logout</a>
+
+            </div>
+
+<form action="app_form" method="post">
+    {% csrf_token %}
+     <div class="form-group">
+          <label for="exampleInputEmail1">Name</label>
+     <input placeholder="Full Name" name="v_name"  class="form-control" >
+         </div>
+    <div style="width:100%;">
+
+         <div class="form-group hf">
+           <label for="exampleInputEmail1">Date of Birth</label>
+    <input type="date" placeholder="first name" name="v_dob"  class="form-control" >
+              </div>
+            <div class="form-group hf">
+                 <label for="exampleInputEmail1">Age</label>
+       <input type="number" placeholder="" name="v_age"  class="form-control" >
+               </div>
+
+    </div>
+
+             <div class="form-group">
+
+                  <label for="exampleInputEmail1" style="width:40%;">Gender</label>
+
+ <label for="others" class="vg" >Others</label>
+ <input type="radio" class="vg" style="margin-right:10px;" id="others" name="v_gender" value="3">
+ <label for="female" class="vg" >Female</label>
+ <input type="radio" class="vg" id="female" style="margin-right:10px;" name="v_gender" value="2">
+ <label for="male" class="vg" >Male</label>
+ <input type="radio" class="vg" id="male" style="margin-right:10px;" name="v_gender" value="1">
+
+
+
+              </div>
+
+     <div style="width:100%;">
+     <div class="form-group hf">
+                  <label for="exampleInputEmail1">Phone No</label>
+     <input type="number" placeholder="Phone No." name="v_phone"  class="form-control" >
+              </div>
+
+     <div class="form-group hf">
+                  <label for="exampleInputEmail1">Mail</label>
+     <input placeholder="Mail Address" name="v_mail"  class="form-control" >
+              </div>
+     </div>
+       <div style="width:100%;">
+     <div class="form-group hf">
+                  <label for="exampleInputEmail1">Department</label>
+     <select name="v_dep"  class="form-control" onchange="changeDep(this.value);">
+         <option value="1">Computer Science</option>
+         <option value="2">Commerce</option>
+         <option value="3">Humanities</option>
+     </select>
+              </div>
+     <div class="form-group hf">
+                  <label for="exampleInputEmail1">Course</label>
+    <select name="v_course"  id="sel_cors" class="form-control" >
+         <option value="1">BCA</option>
+         <option value="2">B-Tech</option>
+     </select>
+              </div>
+       </div>
+
+     <div class="form-group">
+                  <label for="exampleInputEmail1">Purpose</label>
+     <select name="v_purpose"  class="form-control" >
+         <option value="1">Enquiry</option>
+         <option value="2">Place Order</option>
+         <option value="3">Return</option>
+     </select>
+              </div>
+
+
+     <div class="form-group">
+
+                  <label for="exampleInputEmail1" style="width:40%;">Material</label>
+
+
+ <label for="met3" class="vg"  > Exam Pappers</label>
+   <input type="checkbox"  class="vg" id="met3" name="met" style="margin-right:10px;" value="3">
+  <label for="met2" class="vg" >Pen</label>
+   <input type="checkbox"  class="vg" id="met2" style="margin-right:10px;" name="met" value="2">
+<label for="met1" class="vg" > Debit Note</label>
+ <input type="checkbox" id="met1" class="vg"  style="margin-right:10px;" name="met" value="1">
+
+
+              </div>
+
+
+
+
+<div style="width:100%;">
+
+         {% for msg in messages  %}
+    <h2 style="font-size: 12px;
+    background: #f1eaea;
+    width: auto;
+    float: left;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0px;
+    font-weight: bold;
+    color: grey;">{{msg}}</h2>
+     {% endfor %}
+
+                <input type="submit" name="Submit" style="float:right;margin-right:10px;width:150px;" class="btn btn-primary">
+</div>
+
+
+</form>
+        </div>
+        <div class="col-sm-3">
+
+        </div>
+
+
+
+    </div>
+
+</div>
+<script type="text/javascript">
+
+
+    function changeDep(value){
+    var doc = document.getElementById('sel_cors');
+    if(value==1){ //-- CS
+    doc.innerHTML='<option value="1">BCA</option><option value="2">B-Tech</option>';
+    } else if(value==2){ //-- COM
+    doc.innerHTML='<option value="3">ICA</option><option value="4">CA</option>';
+    } else if(value==3){ //-- HUM
+    doc.innerHTML='<option value="5">Bachelor of Journalism</option><option value="6">Bachelor of Mass Media </option>';
+    }
+    }
+</script>
+</body>
+</html>

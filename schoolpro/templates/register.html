@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <title>Register</title>
+    <style>
+        .vs{border: 1px solid #eddfdf;
+    border-radius: 10px;
+    padding: 15px;
+    background: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 20px;}
+    </style>
+</head>
+<body style="background-image:url('https://img.freepik.com/premium-photo/classic-blue-colored-top-view-photo-scattered-stationery_93675-70168.jpg?w=900');">
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-sm-3">
+
+        </div>
+        <div class="col-sm-6 vs" style="top: 20%;
+    position: absolute;
+    left: 30%;
+    width: 35%;">
+            <h3>Registration</h3>
+<form action="register" method="post">
+    {% csrf_token %}
+     <div class="form-group">
+          <label for="exampleInputEmail1">Username</label>
+     <input placeholder="username" name="v_usrname"  class="form-control" >
+         </div>
+          <div class="form-group">
+            <!--   <label for="exampleInputEmail1">First Name</label>
+    <input placeholder="first name" name="v_fname"  class="form-control" >
+              </div>
+            <div class="form-group">
+                 <label for="exampleInputEmail1">Last Name</label>
+       <input placeholder="last name" name="v_lname"  class="form-control" >
+               </div>
+             <div class="form-group">
+                  <label for="exampleInputEmail1">Mail</label>
+     <input placeholder="mail" name="v_mail"  class="form-control" >
+              </div>-->
+                  <div class="form-group">
+                       <label for="exampleInputEmail1">Password</label>
+    <input type="password"  placeholder="password" name="v_pass"  class="form-control" >
+               </div>
+                  <div class="form-group">
+                       <label for="exampleInputEmail1">Confirm Password</label>
+     <input type="password" placeholder="confirm password" name="v_cpass"  class="form-control" >
+                  </div>
+
+               <div style="width:100%;">
+                {% for msg in messages  %}
+    <h2 style="font-size: 12px;
+    background: #f1eaea;
+    width: auto;
+    float: left;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0px;
+    font-weight: bold;
+    color: grey;">{{msg}}</h2>
+     {% endfor %}
+
+    <input type="submit" name="Submit" style="float: right;width: 150px;" class="btn btn-success">
+               </div>
+
+
+</form>
+        </div>
+        <div class="col-sm-3">
+
+        </div>
+
+
+
+    </div>
+
+</div>
+
+</body>
+</html>

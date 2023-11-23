@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Login</title>
+
+    <style>
+     .vs{border: 1px solid #eddfdf;
+    border-radius: 10px;
+    padding: 15px;
+    background: white;
+    position: absolute;
+    top: 20%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    left: 30%;
+    margin: 20px;}
+
+    .top{
+    margin-top:20px;}
+
+    </style>
+
+
+
+</head>
+
+<body style="background-image: url('https://wallpaperaccess.com/full/4893749.jpg')">
+
+       <div class="col-sm-4">
+
+        </div>
+        <div class="col-sm-4 vs">
+
+
+<h3>Login</h3>
+<form action="login" method="post">
+    {% csrf_token %}
+    <div class="form-group top">
+         <label for="exampleInputEmail1">Username</label><br>
+    <input placeholder="username" name="v_usr" class="form-control">
+    </div>
+    <div class="form-group top">
+         <label for="exampleInputEmail1">Password</label><br>
+    <input placeholder="**********" type="password" name="v_pass" class="form-control">
+    </div>
+    <div style="width:100%;">
+
+         {% for msg in messages  %}
+    <h2 style="font-size: 12px;
+    background: #f1eaea;
+    width: auto;
+    float: left;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0px;
+    font-weight: bold;
+    color: grey;">{{msg}}</h2>
+     {% endfor %}
+
+        <a href="register"  class="btn btn-primary py-2 px-4 d-none d-lg-block" style="margin-right: 10px;float: right;">Register</a>
+              <input type="submit"  value="Login" style="margin: 0px;float: right;margin-right: 10px;min-width: 100px;" class="btn btn-success">
+
+
+    </div>
+
+
+</form>
+
+             </div>
+        <div class="col-sm-4">
+
+             </div>
+
+
+</body>
+</html>
